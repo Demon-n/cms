@@ -1,14 +1,17 @@
 import Vue from 'vue';
 import router from './router/index'
 //导入组件
-import { Button, Select, Form, FormItem,Input } from 'element-ui';
+import { Button, Select, Form, FormItem,Input, Message } from 'element-ui';
 import App from './App.vue';
 //注册组件
-Vue.component(Button.name, Button);
-Vue.component(Select.name, Select);
-Vue.component(Form.name, Form);
-Vue.component(FormItem.name, FormItem);
-Vue.component(Input.name, Input);
+Vue.use(Button);
+Vue.use(Select);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
+Vue.use(Message)
+
+Vue.prototype.$message = Message;
 
 new Vue({
   el: '#app',

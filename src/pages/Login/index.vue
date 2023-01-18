@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { reqLogin } from '@/api/index'
+import { reqLogin } from '@/api/index';
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Login',
@@ -41,7 +41,8 @@ export default {
     return {
       ruleForm: {
         pass: '',
-        account: ''
+        account: '',
+        msg:""
       },
       rules: {
         pass: [
@@ -62,12 +63,19 @@ export default {
             username: this.ruleForm.account,
             password: this.ruleForm.pass,
           }
-          reqLogin(params).then(function(response){
+          reqLogin(params).then((response)=>{
             if(response.status===0){
-              alert('登录成功!');
+              this.$message({ message: '恭喜你，登录成功', type: 'success' });
+              console.log(response)
+              this.$router.push({
+                name:'home',
+                params:params
+              })
+              console.log("路由发过去的参数：", this.$route)
             }
             else{
-              alert('登录失败，原因：',response.message)
+              this.msg = response.message
+              this.$message({ message: '很遗憾，登录失败,失败原因：'+this.msg, type: 'warning' });
             }
           })
         } 
@@ -78,6 +86,7 @@ export default {
     }
   },
   mounted() {
+    console.log("路由传过来的参数：", this.$route.params)
   },
 }
 </script>

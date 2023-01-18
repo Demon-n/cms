@@ -43,10 +43,16 @@ export default {
       }
     };
     var checkEmail = (rule, value, callback) => {
+      const regEmail =  /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/
       if (value === '') {
         callback(new Error('请输入邮箱'));
       }
-      else { callback(); }
+      else if (regEmail.test(value)) {
+        callback();
+      }
+      else { 
+        callback(new Error('请输入正确邮箱'));
+       }
     };
     return {
       ruleForm: {
@@ -77,12 +83,14 @@ export default {
             password: this.ruleForm.pass,
             email: this.ruleForm.email,
           }
-          reqRegister(params).then(function (response) {
+          reqRegister(params).then( (response) =>{
             if (response.status === 0) {
-              alert('注册成功!');
+              this.$message({ message: '恭喜你，注册成功,请登录', type: 'success' }); 
+              this.$router.push('/login')
+              console.log(response)
             }
             else {
-              alert('注册失败，原因:', response.message)
+              this.$message({ message: '很遗憾，注册失败，失败原因：'+response.message, type: 'warning' });
             }
           })
         }
