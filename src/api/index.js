@@ -15,3 +15,10 @@ export const reqRegister = data =>requests({url:'user/regUser',method:'post',dat
  * 
  */
 export const reqLogin = data =>requests({url:'user/login',method:'post',data})
+
+/**
+ * 
+ * 调用登录接口 
+ * 
+ */
+export const reqUpdatePass = data =>requests({url:'my/resetPwd',method:'post',data})

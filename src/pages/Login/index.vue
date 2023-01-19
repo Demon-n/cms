@@ -1,6 +1,5 @@
 <template>
   <div style="position:relative; margin-top: 14%;">
-    <h2>登录</h2>
     <div class="lg">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="账号" prop="account">
@@ -29,7 +28,7 @@ export default {
         return callback(new Error('请输入账号'));
       }
       else
-          callback();
+        callback();
     };
     var validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -42,7 +41,7 @@ export default {
       ruleForm: {
         pass: '',
         account: '',
-        msg:""
+        msg: ""
       },
       rules: {
         pass: [
@@ -63,22 +62,22 @@ export default {
             username: this.ruleForm.account,
             password: this.ruleForm.pass,
           }
-          reqLogin(params).then((response)=>{
-            if(response.status===0){
+          reqLogin(params).then((response) => {
+            if (response.status === 0) {
               this.$message({ message: '恭喜你，登录成功', type: 'success' });
               console.log(response)
               this.$router.push({
-                name:'home',
-                params:params
+                name: 'home',
+                params: params
               })
               console.log("路由发过去的参数：", this.$route)
             }
-            else{
+            else {
               this.msg = response.message
-              this.$message({ message: '很遗憾，登录失败,失败原因：'+this.msg, type: 'warning' });
+              this.$message({ message: '很遗憾，登录失败,失败原因：' + this.msg, type: 'warning' });
             }
           })
-        } 
+        }
       });
     },
     resetForm(formName) {

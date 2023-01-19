@@ -3,16 +3,11 @@ import VueRouter from 'vue-router'
 //引入路由组件
 import Login from '@/pages/Login/index.vue'
 import Register from '@/pages/Register/index.vue'
-import Home from '@/pages/Home/index.vue'
+import UpdatePass from '@/pages/UpdatePass/index.vue'
 
 Vue.use(VueRouter)
 export default new VueRouter ({
     routes:[
-        {
-            name:'home',
-            path:'/',
-            component:Home,
-        },
         {
             name:'register',
             path:'/register',
@@ -22,6 +17,11 @@ export default new VueRouter ({
             name:'login',
             path:'/login',
             component:Login,
+        },
+        {
+            name:'UpdatePass',
+            path:'/UpdatePass',
+            component:UpdatePass,
         },
     ]
 })

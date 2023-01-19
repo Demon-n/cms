@@ -1,6 +1,5 @@
 <template>
   <div style="position:relative; margin-top: 14%;">
-    <h2>注册</h2>
     <div class="lg">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="账号" prop="account">
@@ -43,16 +42,16 @@ export default {
       }
     };
     var checkEmail = (rule, value, callback) => {
-      const regEmail =  /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/
+      const regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/
       if (value === '') {
         callback(new Error('请输入邮箱'));
       }
       else if (regEmail.test(value)) {
         callback();
       }
-      else { 
+      else {
         callback(new Error('请输入正确邮箱'));
-       }
+      }
     };
     return {
       ruleForm: {
@@ -83,14 +82,14 @@ export default {
             password: this.ruleForm.pass,
             email: this.ruleForm.email,
           }
-          reqRegister(params).then( (response) =>{
+          reqRegister(params).then((response) => {
             if (response.status === 0) {
-              this.$message({ message: '恭喜你，注册成功,请登录', type: 'success' }); 
+              this.$message({ message: '恭喜你，注册成功,请登录', type: 'success' });
               this.$router.push('/login')
               console.log(response)
             }
             else {
-              this.$message({ message: '很遗憾，注册失败，失败原因：'+response.message, type: 'warning' });
+              this.$message({ message: '很遗憾，注册失败，失败原因：' + response.message, type: 'warning' });
             }
           })
         }

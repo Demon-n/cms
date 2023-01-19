@@ -1,30 +1,31 @@
 <template>
-    <div>
-        <h1>Home</h1>
+    <div class="header">
+            cms管理系统
         <div class="info" v-show="$route.params.username">
             <p class="userName">{{ $route.params.username }},欢迎您</p>
         </div>
-        <h2>
-            <router-link to="/login">登录</router-link>
-            <router-link to="/register" style="margin-left:100px">注册</router-link>
-        </h2>
     </div>
 </template>
 <script>
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Home',
+    name: "Header",
     data() {
-        return {
-
-        }
-    },
-    mounted() {
-        console.log("路由传过来的参数：", this.$route)
+        return {}
     }
 }
 </script>
-<style scoped lang="less">
+<style>
+.header {
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+}
+
+.el-header {
+    padding: 0;
+}
+
 .info {
     width: 200px;
     height: 100px;
