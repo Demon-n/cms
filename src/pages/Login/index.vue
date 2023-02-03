@@ -19,6 +19,8 @@
 
 <script>
 import { reqLogin } from '@/api/index';
+import { setToken } from '@/utils/auth';
+import { reqGetUserInfo } from "@/api/";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Login',
@@ -57,20 +59,28 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          //调用后端接口
           let params = {
             username: this.ruleForm.account,
             password: this.ruleForm.pass,
           }
+          //调用后端接口
           reqLogin(params).then((response) => {
             if (response.status === 0) {
               this.$message({ message: '恭喜你，登录成功', type: 'success' });
-              console.log(response)
+              console.log("登录成功返回数据", response)
               this.$router.push({
                 name: 'home',
-                params: params
+                params: {
+                  username: this.ruleForm.account,
+                  password: this.ruleForm.pass,
+                  data: response.data
+                }
               })
               console.log("路由发过去的参数：", this.$route)
+              //将用户名保存在浏览器里
+              localStorage.setItem('userInfo', JSON.stringify(params));
+              setToken(response.data);
+              reqGetUserInfo();
             }
             else {
               this.msg = response.message

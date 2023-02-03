@@ -18,7 +18,13 @@ export const reqLogin = data =>requests({url:'user/login',method:'post',data})
 
 /**
  * 
- * 调用登录接口 
+ * 调用修改密码接口 
  * 
  */
 export const reqUpdatePass = data =>requests({url:'my/resetPwd',method:'post',data})
+/**
+ * 
+ * 获取用户信息接口 
+ * 
+ */
+export const reqGetUserInfo = () =>requests({url:'/my/userInfo',method:'get'})

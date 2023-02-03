@@ -1,25 +1,33 @@
 <template>
     <div class="header">
-            cms管理系统
-        <div class="info" v-show="$route.params.username">
-            <p class="userName">{{ $route.params.username }},欢迎您</p>
+        cms管理系统
+        <div class="info">
+            <p v-show="!userInfo.username" class="userName">请登录</p>
+            <p v-show="userInfo.username" class="userName">{{ userInfo.username }},欢迎您</p>
         </div>
     </div>
 </template>
 <script>
+
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: "Header",
     data() {
-        return {}
-    }
+        return {
+            userInfo: {},
+        }
+    },
+    mounted() {
+        this.userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    },
+  
 }
 </script>
 <style>
 .header {
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
+    background-color: #8AAE92;
 }
 
 .el-header {

@@ -20,7 +20,7 @@ export default {
 .footer {
     width: 100%;
     height: 70px;
-    background-color: aquamarine;
+    background-color: #8AAE92;
     text-align: center;
 }
 </style>

@@ -1,25 +1,24 @@
 <template>
     <div class="menu">
-
         <el-row class="tac">
             <el-col :span="24">
                 <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
                     background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
                     <el-submenu index="1">
                         <template slot="title">
-                            <i class="el-icon-location"></i>
-                            <span>主要业务</span>
+                            <i class="el-icon-s-operation"></i>
+                            <span>文章分类</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                            <el-menu-item index="1-3">选项3</el-menu-item>
-                            <el-menu-item index="1-4">选项4</el-menu-item>
+                            <el-menu-item index="1-1">查看分类</el-menu-item>
+                            <el-menu-item index="1-2">添加分类</el-menu-item>
+                            <el-menu-item index="1-3">修改分类</el-menu-item>
+                            <el-menu-item index="1-3">删除分类</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     <el-submenu index="2">
                         <template slot="title">
-                            <i class="el-icon-location"></i>
+                            <i class="el-icon-setting"></i>
                             <span>系统管理</span>
                         </template>
                         <el-menu-item-group>
@@ -27,7 +26,7 @@
                                 <router-link to="/updatepass">修改密码</router-link>
                             </el-menu-item>
                             <el-menu-item index="2-2">选项2</el-menu-item>
-                            <el-menu-item index="2-3" >
+                            <el-menu-item index="2-3">
                                 <router-link to="/register">注册</router-link>
                             </el-menu-item>
                             <el-menu-item index="2-4">
@@ -61,6 +60,10 @@ export default {
 .menu {
     height: 670px;
     width: 100%;
-    background-color: rgb(203, 208, 212);
+    background-color: #8AAE92;
+
+    /deep/ .el-submenu__title {
+        background-color: #476162 !important;
+    }
 }
 </style>
