@@ -28,3 +28,27 @@ export const reqUpdatePass = data =>requests({url:'my/resetPwd',method:'post',da
  * 
  */
 export const reqGetUserInfo = () =>requests({url:'/my/userInfo',method:'get'})
+/**
+ * 
+ * 查看文章分类接口 
+ * 
+ */
+export const reqSelectSort = () =>requests({url:'/article/getAllCategory',method:'get'})
+/**
+ * 
+ * 添加文章分类接口 
+ * 
+ */
+export const reqAddSort = data =>requests({url:'/article/addCategory',method:'post',data})
+/**
+ * 
+ * 修改文章分类接口 
+ * 
+ */
+export const reqUpdateSort = data =>requests({url:'/article/editCategory',method:'post',data})
+/**
+ * 
+ * 删除文章分类接口 
+ * 
+ */
+export const reqDeleteSort = data =>requests({url:'/article/deleteCategory',method:'get',data})

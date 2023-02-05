@@ -10,10 +10,18 @@
                             <span>文章分类</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">查看分类</el-menu-item>
-                            <el-menu-item index="1-2">添加分类</el-menu-item>
-                            <el-menu-item index="1-3">修改分类</el-menu-item>
-                            <el-menu-item index="1-3">删除分类</el-menu-item>
+                            <el-menu-item index="1-1">
+                                <router-link to="/selectSort">查看分类</router-link>
+                            </el-menu-item>
+                            <el-menu-item index="1-2">
+                                <router-link to="/addSort">添加分类</router-link>
+                            </el-menu-item>
+                            <el-menu-item index="1-3">
+                                <router-link to="/updateSort">修改分类</router-link>
+                            </el-menu-item>
+                            <el-menu-item index="1-3">
+                                <router-link to="/deleteSort">删除分类</router-link>
+                            </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     <el-submenu index="2">
@@ -65,5 +73,8 @@ export default {
     /deep/ .el-submenu__title {
         background-color: #476162 !important;
     }
+}
+.el-submenu .el-menu-item {
+    min-width: 199px;
 }
 </style>

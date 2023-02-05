@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        cms管理系统
+        <h2>cms管理系统</h2>
         <div class="info">
             <p v-show="!userInfo.username" class="userName">请登录</p>
             <p v-show="userInfo.username" class="userName">{{ userInfo.username }},欢迎您</p>
@@ -27,11 +27,12 @@ export default {
 .header {
     width: 100%;
     height: 100%;
-    background-color: #8AAE92;
+    line-height: 100%;
 }
 
 .el-header {
     padding: 0;
+    background-color: #8AAE92;
 }
 
 .info {
